@@ -77,8 +77,13 @@ async def on_raw_reaction_remove(payload):
 # 收到訊息時呼叫
 @client.event
 async def on_message(message):
-    
-    
+  
+  #停頓
+    if message.author.bot:
+       import time
+       time.sleep(3)
+      return
+    await client.process_commands(message)
     #私訊
     if message.guild == None:
         return
