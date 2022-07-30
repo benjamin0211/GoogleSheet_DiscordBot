@@ -7,7 +7,6 @@ import os
 from apiclient import discovery
 import random
 import asyncio
-import time
 TOKEN = os.environ['TOKEN']
 APIKey = os.environ['APIKEY']
 SpreadsheetId = os.environ['SHEET_ID']
@@ -79,11 +78,6 @@ async def on_raw_reaction_remove(payload):
 @client.event
 async def on_message(message):
   
-  #停頓
-    if message.author.bot:
-       time.sleep(3)
-        return
-    await client.process_commands(message)
     #私訊
     if message.guild == None:
         return
