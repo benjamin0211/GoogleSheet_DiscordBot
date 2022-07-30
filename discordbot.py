@@ -7,6 +7,7 @@ import os
 from apiclient import discovery
 import random
 import asyncio
+import time
 TOKEN = os.environ['TOKEN']
 APIKey = os.environ['APIKEY']
 SpreadsheetId = os.environ['SHEET_ID']
@@ -80,9 +81,8 @@ async def on_message(message):
   
   #停頓
     if message.author.bot:
-       import time
        time.sleep(3)
-      return
+        return
     await client.process_commands(message)
     #私訊
     if message.guild == None:
