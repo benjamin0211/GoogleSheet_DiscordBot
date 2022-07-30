@@ -78,10 +78,7 @@ async def on_raw_reaction_remove(payload):
 @client.event
 async def on_message(message):
     
-    # 送信者為Bot時無視
-    if message.author.bot:
-        return
-    await client.process_commands(message)
+    
     #私訊
     if message.guild == None:
         return
